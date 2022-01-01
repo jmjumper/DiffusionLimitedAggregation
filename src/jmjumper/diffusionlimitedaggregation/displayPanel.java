@@ -2,14 +2,13 @@ package jmjumper.diffusionlimitedaggregation;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class displayPanel extends JPanel {
 
     private Gui gui;
     private Particle particle;
-    Graphics2D g2d_old;
 
     public displayPanel(Gui gui) {
         this.gui = gui;
@@ -45,7 +44,6 @@ public class displayPanel extends JPanel {
         }
 
         g2d.drawImage(img, 0, 0, getWidth(), getHeight(), 0, 0, img.getWidth(), img.getHeight(), null);
-        g2d_old = (Graphics2D) g2d.getComposite();
     }
 
 }
