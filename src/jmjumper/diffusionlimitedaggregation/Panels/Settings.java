@@ -120,7 +120,7 @@ public class Settings extends JPanel implements ChangeListener, ItemListener, Ac
         showUnfinishedCheckbox = new JCheckBox("show unfinished", true);
         showUnfinishedCheckbox.addItemListener(this);
 
-        fixedNodeSizeCheckbox = new JCheckBox("fixed node amount", true);
+        fixedNodeSizeCheckbox = new JCheckBox("endless mode", false);
         fixedNodeSizeCheckbox.addItemListener(this);
 
         JPanel buttonPanel = new JPanel(new GridLayout(1, 2));

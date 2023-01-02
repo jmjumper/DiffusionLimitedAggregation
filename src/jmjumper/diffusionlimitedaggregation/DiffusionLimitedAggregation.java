@@ -45,7 +45,7 @@ public class DiffusionLimitedAggregation {
         radiusFactor = 0.9985;
         changeRadius = true;
         showUnfinished = true;
-        fixedNodeSize = true;
+        fixedNodeSize = false;
         isPause = false;
         startColor = new Color(255, 5, 1);
         r = startColor.getRed();
@@ -97,7 +97,7 @@ public class DiffusionLimitedAggregation {
     }
 
     private void fillNodes () {
-        if ( fixedNodeSize ) return;
+        if ( !fixedNodeSize ) return;
         startColor = new Color((int) r, (int) g, (int) b);
         if ( changeRadius ) {
             if ( nodes.size() > 1 ) radius = nodes.get(nodes.size() - 1).getRadius();
