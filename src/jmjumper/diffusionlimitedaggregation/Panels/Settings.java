@@ -31,7 +31,6 @@ public class Settings extends JPanel implements ChangeListener, ItemListener, Ac
     private JSlider radiusSlider;
     private JSlider maxNodeSlider;
     private JSlider speedSlider;
-    private JCheckBox changeRadiusCheckbox;
     private JCheckBox showUnfinishedCheckbox;
     private JCheckBox fixedNodeSizeCheckbox;
     private JButton pause;
@@ -171,10 +170,7 @@ public class Settings extends JPanel implements ChangeListener, ItemListener, Ac
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        if ( e.getSource() == changeRadiusCheckbox ) {
-            changeRadius = changeRadiusCheckbox.isSelected();
-            dla.setChangeRadius(changeRadius);
-        } else if ( e.getSource() == showUnfinishedCheckbox ) {
+        if ( e.getSource() == showUnfinishedCheckbox ) {
             showUnfinished = showUnfinishedCheckbox.isSelected();
             dla.setShowUnfinished(showUnfinished);
         } else if ( e.getSource() == fixedNodeSizeCheckbox ) {
