@@ -15,6 +15,14 @@ public class Vector {
         return Math.sqrt( dx * dx + dy * dy );
     }
 
+    // The square-root is not calculated for efficiency
+    public static double distanceSquared ( Vector v1, Vector v2 ) {
+        double dx = v1.getX() - v2.getX();
+        double dy = v1.getY() - v2.getY();
+        return dx * dx + dy * dy;
+    }
+
+
     public static Vector add ( Vector v1, Vector v2 ) {
         return new Vector( v1.getX() + v2.getX(), v1.getY() + v2.getY() );
     }

@@ -6,10 +6,10 @@ import java.util.Random;
 
 public class Node {
 
-    private Vector pos;
+    private final Vector pos;
     private boolean finished;
-    private double radius;
-    private final Color color;
+    private final double radius;
+    private Color color;
     private boolean isHead = false;
     private final int width, height;
 
@@ -30,18 +30,21 @@ public class Node {
         this.height = height;
     }
 
+    // movement based on random walk
     public void move () {
         int velocityX = new Random().ints(-1, 2).findFirst().getAsInt();
         int velocityY = new Random().ints(-1, 2).findFirst().getAsInt();
         Vector vel = new Vector(velocityX, velocityY);
         Vector newPos = Vector.add(pos, vel);
-        if (newPos.getX() <= width - vel.getX() && newPos.getY() <= height - vel.getY())
+        if (newPos.getX() <= width - vel.getX() && newPos.getX() > 0 && newPos.getY() <= height - vel.getY() && newPos.getY() > 0)
             pos.add(vel);
     }
 
     public boolean checkFinished ( ArrayList<Node> tree ) {
         for ( Node t : tree ) {
-            if ( Vector.distance(pos, t.pos) < (radius / 2) + (t.radius / 2) )
+            // finished if the squared distance to another finished node is smaller
+            // than the squared halved radii of both (finished and unfinished) nodes.
+            if ( Vector.distanceSquared(pos, t.pos) < Math.pow((radius / 2) + (t.radius / 2), 2) )
                 finished = true;
         }
         return finished;
@@ -57,35 +60,15 @@ public class Node {
         g2d.translate(radius / 2, radius / 2);
     }
 
+    public void setColor ( Color color ) {
+        this.color = color;
+    }
+
     public Vector getPos() {
         return pos;
     }
 
-    public void setPos(Vector pos) {
-        this.pos = pos;
-    }
-
-    public boolean isFinished() {
-        return finished;
-    }
-
-    public void setFinished(boolean finished) {
-        this.finished = finished;
-    }
-
     public double getRadius() {
         return radius;
-    }
-
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
-
-    public double getX () {
-        return pos.getX();
-    }
-
-    public double getY () {
-        return pos.getY();
     }
 }

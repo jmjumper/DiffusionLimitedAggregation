@@ -1,10 +1,8 @@
 package jmjumper.diffusionlimitedaggregation.Panels;
 
-import jmjumper.diffusionlimitedaggregation.Components.Node;
 import jmjumper.diffusionlimitedaggregation.DiffusionLimitedAggregation;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public class VisualisationPanel extends Component {
 
@@ -14,13 +12,12 @@ public class VisualisationPanel extends Component {
 
     public VisualisationPanel ( int width, int height ) {
         this.width = width;
-        // this.height = height - height / 8;
-        this.height = height;
+        this.height = height - height / 8;
 
         setPreferredSize(new Dimension(this.width, this.height));
 
-        settingsComponent = new Settings(this, width, height);
         dla = new DiffusionLimitedAggregation(this ); // initialises algorithm
+        settingsComponent = new Settings(dla, width, height);
     }
 
     public void update () {
@@ -33,7 +30,6 @@ public class VisualisationPanel extends Component {
         g2d.fillRect( 0, 0, width, height );
         dla.update();
         dla.draw(g2d);
-        settingsComponent.draw(g2d);
     }
 
     public Component getSettingsComponent () {

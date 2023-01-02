@@ -5,20 +5,20 @@ import java.awt.*;
 
 public class Visualisation extends JFrame {
 
-    private final VisualisationPanel mainPanel;
+    private final VisualisationPanel visualisationPanel;
     private boolean running;
     public Visualisation ( int width, int height ) {
         super("Diffusion Limited Aggregation");
         setSize(width, height);
         setPreferredSize(new Dimension(width, height));
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-        mainPanel = new VisualisationPanel( width, height);
-        panel.add(mainPanel);
-        // panel.add(mainPanel.getSettingsComponent());
-        add(panel);
+        visualisationPanel = new VisualisationPanel( width, height);
+        mainPanel.add(visualisationPanel);
+        mainPanel.add(visualisationPanel.getSettingsComponent());
+        add(mainPanel);
 
         pack();
         setResizable(false);
@@ -33,8 +33,9 @@ public class Visualisation extends JFrame {
         SwingWorker<Void, Void> swingWorker = new SwingWorker<>() {
             @Override
             protected Void doInBackground() {
-                while ( running )
-                    mainPanel.update();
+                while ( running ) {
+                    visualisationPanel.update();
+                }
                 return null;
             }
         };
