@@ -95,7 +95,7 @@ public class Settings extends JPanel implements ChangeListener, ItemListener, Ac
         JPanel maxNodePanel = new JPanel(new GridLayout(2, 1));
         maxNodeLabel = new JLabel("Max Nodes: " + maxNodes, JLabel.CENTER);
         maxNodePanel.add(maxNodeLabel);
-        maxNodeSlider = new JSlider(JSlider.HORIZONTAL, 1, 200, maxNodes);
+        maxNodeSlider = new JSlider(JSlider.HORIZONTAL, 1, 400, maxNodes);
         maxNodeSlider.setMajorTickSpacing(100);
         maxNodeSlider.setPaintTicks(true);
         maxNodeSlider.addChangeListener(this);
