@@ -117,9 +117,6 @@ public class Settings extends JPanel implements ChangeListener, ItemListener, Ac
 
     private JPanel initCheckSettings () {
         JPanel checkboxPanel = new JPanel(new GridLayout(3, 2));
-        changeRadiusCheckbox = new JCheckBox("fixed size", false);
-        changeRadiusCheckbox.addItemListener(this);
-
         showUnfinishedCheckbox = new JCheckBox("show unfinished", true);
         showUnfinishedCheckbox.addItemListener(this);
 
@@ -134,7 +131,6 @@ public class Settings extends JPanel implements ChangeListener, ItemListener, Ac
         buttonPanel.add(pause);
         buttonPanel.add(restart);
 
-        // checkboxPanel.add(changeRadiusCheckbox);
         checkboxPanel.add(showUnfinishedCheckbox);
         checkboxPanel.add(fixedNodeSizeCheckbox);
         checkboxPanel.add(buttonPanel);
