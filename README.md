@@ -4,4 +4,5 @@ The particles randomly move around, until they come in contact with already aggr
 <br />
 You can play around a bit by changing the speed, node-amount and other options in the settings bar as shown below.  <br />
 This is strongly inspired by Paul Bourke who has done <a href="http://paulbourke.net/fractals/dla/">a paper on this</a>. <br /> <br />
-<img href="/img/example.png"></img>
+
+![example screenshot](https://github.com/jmjumper/DiffusionLimitedAggregation/blob/master/img/example.png)
