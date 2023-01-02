@@ -40,7 +40,7 @@ public class DiffusionLimitedAggregation {
         standardRadius = 15;
         radius = standardRadius;
         minRadius = 5;
-        maxNodes = 50;
+        maxNodes = 400;
         speed = 1000;
         radiusFactor = 0.9985;
         changeRadius = true;
@@ -154,6 +154,7 @@ public class DiffusionLimitedAggregation {
         nodes.clear();
         Vector center = new Vector(panel.getPreferredSize().getWidth() / 2, panel.getPreferredSize().getHeight() / 2);
         radius = standardRadius;
+        startColor = new Color(255, 5, 1);
         tree.add( new Node(center, radius, startColor, true, width, height) );
         while (nodes.size() < maxNodes && radius > minRadius) {
             radius *= radiusFactor;
